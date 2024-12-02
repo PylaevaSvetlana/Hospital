@@ -12,11 +12,11 @@ std::shared_ptr<Doctor> Hospital::Doctor::CreateDoctor(const std::string& firstN
 bool Hospital::Doctor::AddPatient(std::shared_ptr<Patient>& patient)
 {
 	this->patients.push_back(patient);
-	patient->GetPatients().push_back(shared_from_this());
+	patient->GetDoctors().push_back(shared_from_this());
 	return true;
 }
 
-std::string Hospital::Doctor::ToString() const
+std::string Hospital::Doctor::ToString()
 {
 	std::stringstream buffer{};
 	buffer << GetFirstName() << " " << GetSecondName() << " " << GetPatronymicName() << " " << GetSpecialization();
@@ -42,5 +42,13 @@ std::string Hospital::Doctor::GetSpecialization()
 {
 	return specialization;
 }
+
+std::vector<std::shared_ptr<Patient>>& Hospital::Doctor::GetPatients()
+{
+	return patients;
+}
+
+
+
 
 
