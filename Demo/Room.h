@@ -12,8 +12,8 @@ namespace Hospital
 	private:
 		int number;
 		std::vector<std::shared_ptr<Patient>> patients;
-	public:
 		Room(int number);
+	public:
 		static std::shared_ptr<Room> CreateRoom(int number);
 		int GetNumber();
 		bool AddPatient(std::shared_ptr<Patient>& patient);

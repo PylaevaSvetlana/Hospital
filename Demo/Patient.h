@@ -19,15 +19,16 @@ namespace Hospital
 		std::string disease;
 		std::vector<std::shared_ptr<Doctor>> doctors;
 		std::shared_ptr<Room> room;
-	public:
 		Patient(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& disease);
+	public:
 		static std::shared_ptr<Patient> CreatePatient(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& disease);
-		std::string ToString();
-		std::string GetFirstName();
-		std::string GetSecondName();
-		std::string GetPatronymicName();
-		std::string GetDisease();
-		std::shared_ptr<Room>& GetRoom();
+		std::string ToString() const;
+		std::string GetFirstName() const noexcept;
+		std::string GetSecondName() const noexcept;
+		std::string GetPatronymicName() const noexcept;
+		std::string GetDisease() const noexcept;
+		std::shared_ptr<Room>& GetRoom() noexcept;
+		const std::shared_ptr<Room>& GetRoom() const noexcept;
 		bool AddDoctor(std::shared_ptr<Doctor>& doctor);
 		std::vector<std::shared_ptr<Doctor>>& GetDoctors();
 	};

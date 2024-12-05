@@ -7,34 +7,39 @@ std::shared_ptr<Patient> Hospital::Patient::CreatePatient(const std::string& fir
 	return std::make_shared<Patient>(Patient{ firstName, secondName, patronymicName, disease });
 }
 
-std::string Hospital::Patient::ToString()
+std::string Hospital::Patient::ToString() const 
 {
 	std::stringstream buffer{};
 	buffer << GetFirstName() << " " << GetSecondName() << " " << GetPatronymicName() << " " << GetDisease();
 	return buffer.str();
 }
 
-std::string Hospital::Patient::GetFirstName()
+std::string Hospital::Patient::GetFirstName() const noexcept
 {
 	return firstName;
 }
 
-std::string Hospital::Patient::GetSecondName()
+std::string Hospital::Patient::GetSecondName() const noexcept
 {
 	return secondName;
 }
 
-std::string Hospital::Patient::GetPatronymicName()
+std::string Hospital::Patient::GetPatronymicName() const noexcept
 {
 	return patronymicName;
 }
 
-std::string Hospital::Patient::GetDisease()
+std::string Hospital::Patient::GetDisease() const noexcept
 {
 	return disease;
 }
 
-std::shared_ptr<Room>& Hospital::Patient::GetRoom()
+std::shared_ptr<Room>& Hospital::Patient::GetRoom() noexcept
+{
+	return room;
+}
+
+const std::shared_ptr<Room>& Hospital::Patient::GetRoom() const noexcept
 {
 	return room;
 }

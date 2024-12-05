@@ -16,34 +16,43 @@ bool Hospital::Doctor::AddPatient(std::shared_ptr<Patient>& patient)
 	return true;
 }
 
-std::string Hospital::Doctor::ToString()
+std::string Hospital::Doctor::ToString() const
 {
 	std::stringstream buffer{};
 	buffer << GetFirstName() << " " << GetSecondName() << " " << GetPatronymicName() << " " << GetSpecialization();
+	for (auto& temp : GetPatients())
+	{
+		buffer << " " << temp->GetFirstName() << " " << temp->GetSecondName() << " " << temp->GetPatronymicName();
+	}
 	return buffer.str();
 }
 
-std::string Hospital::Doctor::GetFirstName()
+std::string Hospital::Doctor::GetFirstName()  const noexcept
 {
 	return firstName;
 }
 
-std::string Hospital::Doctor::GetSecondName()
+std::string Hospital::Doctor::GetSecondName() const noexcept
 {
 	return secondName;
 }
 
-std::string Hospital::Doctor::GetPatronymicName()
+std::string Hospital::Doctor::GetPatronymicName() const noexcept
 {
 	return patronymicName;
 }
 
-std::string Hospital::Doctor::GetSpecialization()
+std::string Hospital::Doctor::GetSpecialization() const noexcept
 {
 	return specialization;
 }
 
-std::vector<std::shared_ptr<Patient>>& Hospital::Doctor::GetPatients()
+std::vector<std::shared_ptr<Patient>>& Hospital::Doctor::GetPatients() noexcept
+{
+	return patients;
+}
+
+const std::vector<std::shared_ptr<Patient>>& Hospital::Doctor::GetPatients() const noexcept
 {
 	return patients;
 }
