@@ -2,6 +2,8 @@
 #include "Patient.h"
 #include <iostream>
 #include <vector>
+#include <string>
+#include <sstream>
 
 namespace Hospital
 {
@@ -15,7 +17,8 @@ namespace Hospital
 		Room(int number);
 	public:
 		static std::shared_ptr<Room> CreateRoom(int number);
-		int GetNumber();
+		std::string ToString() const;
+		int GetNumber() const noexcept;
 		bool AddPatient(std::shared_ptr<Patient>& patient);
 		std::vector<std::shared_ptr<Patient>>& GetPatients();
 	};

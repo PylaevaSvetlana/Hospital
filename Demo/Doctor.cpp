@@ -8,7 +8,6 @@ std::shared_ptr<Doctor> Hospital::Doctor::CreateDoctor(const std::string& firstN
 	return std::make_shared<Doctor>(Doctor{ firstName, secondName, patronymicName, specialization });
 }
 
-
 bool Hospital::Doctor::AddPatient(std::shared_ptr<Patient>& patient)
 {
 	this->patients.push_back(patient);

@@ -11,6 +11,10 @@ std::string Hospital::Patient::ToString() const
 {
 	std::stringstream buffer{};
 	buffer << GetFirstName() << " " << GetSecondName() << " " << GetPatronymicName() << " " << GetDisease();
+	if (GetRoom())
+	{
+		buffer << " " << GetRoom()->GetNumber();
+	}
 	return buffer.str();
 }
 
@@ -42,6 +46,13 @@ std::shared_ptr<Room>& Hospital::Patient::GetRoom() noexcept
 const std::shared_ptr<Room>& Hospital::Patient::GetRoom() const noexcept
 {
 	return room;
+}
+
+bool Hospital::Patient::AddRoom(std::shared_ptr<Room>& room)
+{
+	this->room=room;
+	room->GetPatients().push_back(shared_from_this());
+	return true;
 }
 
 bool Hospital::Patient::AddDoctor(std::shared_ptr<Doctor>& doctor)

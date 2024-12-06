@@ -20,5 +20,9 @@ int main()
 
 	doctor->AddPatient(patient);
 	std::cout<<doctor->ToString();
+
+	patient->AddRoom(room);
+	std::cout << patient->ToString();
+
 	return 0;
 }

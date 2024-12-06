@@ -7,7 +7,14 @@ std::shared_ptr<Room> Hospital::Room::CreateRoom(int number)
 	return std::make_shared<Room>(Room{ number });
 }
 
-int Hospital::Room::GetNumber()
+std::string Hospital::Room::ToString() const
+{
+	std::stringstream buffer{};
+	buffer << GetNumber();
+	return buffer.str();
+}
+
+int Hospital::Room::GetNumber() const noexcept
 {
 	return number;
 }
