@@ -16,7 +16,7 @@ namespace Hospital
 		std::string secondName;
 		std::string patronymicName;
 		std::string specialization;
-		std::vector<std::shared_ptr<Patient>> patients;
+		std::vector<std::weak_ptr<Patient>> patients;
 		Doctor(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& specialization);
 	public:
 		static std::shared_ptr<Doctor> CreateDoctor(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& specialization);
@@ -26,8 +26,7 @@ namespace Hospital
 		std::string GetSecondName() const noexcept;
 		std::string GetPatronymicName() const noexcept;
 		std::string GetSpecialization() const noexcept;
-		std::vector<std::shared_ptr<Patient>>& GetPatients() noexcept;
-		const std::vector<std::shared_ptr<Patient>>& GetPatients() const noexcept;
+		std::vector<std::weak_ptr<Patient>>& GetPatients() noexcept;
+		const std::vector<std::weak_ptr<Patient>>& GetPatients() const noexcept;
 	};
 }
-

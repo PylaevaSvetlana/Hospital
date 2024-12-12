@@ -21,16 +21,17 @@ int Hospital::Room::GetNumber() const noexcept
 
 bool Hospital::Room::AddPatient(std::shared_ptr<Patient>& patient)
 {
-	this->patients.push_back(patient);
-	patient->GetRoom() = shared_from_this();
+	this->patients.push_back(patient.get());
+	patient.get()->GetRoom() = shared_from_this();
 	return true;
 }
 
-std::vector<std::shared_ptr<Patient>>& Hospital::Room::GetPatients()
+std::vector<Patient*>& Hospital::Room::GetPatients() noexcept
 {
 	return patients;
 }
 
-
-
-
+const std::vector<Patient*>& Hospital::Room::GetPatients() const noexcept
+{
+	return patients;
+}

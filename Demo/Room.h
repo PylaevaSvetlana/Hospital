@@ -13,14 +13,14 @@ namespace Hospital
 	{
 	private:
 		int number;
-		std::vector<std::shared_ptr<Patient>> patients;
+		std::vector< Patient* > patients;
 		Room(int number);
 	public:
 		static std::shared_ptr<Room> CreateRoom(int number);
 		std::string ToString() const;
 		int GetNumber() const noexcept;
 		bool AddPatient(std::shared_ptr<Patient>& patient);
-		std::vector<std::shared_ptr<Patient>>& GetPatients();
+		std::vector<Patient*>& GetPatients() noexcept;
+		const std::vector<Patient*>& GetPatients() const noexcept;
 	};
 }
-

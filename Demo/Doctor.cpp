@@ -21,7 +21,7 @@ std::string Hospital::Doctor::ToString() const
 	buffer << GetFirstName() << " " << GetSecondName() << " " << GetPatronymicName() << " " << GetSpecialization();
 	for (auto& temp : GetPatients())
 	{
-		buffer << " " << temp->GetFirstName() << " " << temp->GetSecondName() << " " << temp->GetPatronymicName();
+		buffer << " " << temp.lock()->GetFirstName() << " " << temp.lock()->GetSecondName() << " " << temp.lock()->GetPatronymicName();
 	}
 	return buffer.str();
 }
@@ -46,17 +46,12 @@ std::string Hospital::Doctor::GetSpecialization() const noexcept
 	return specialization;
 }
 
-std::vector<std::shared_ptr<Patient>>& Hospital::Doctor::GetPatients() noexcept
+std::vector<std::weak_ptr<Patient>>& Hospital::Doctor::GetPatients() noexcept
 {
 	return patients;
 }
 
-const std::vector<std::shared_ptr<Patient>>& Hospital::Doctor::GetPatients() const noexcept
+const std::vector<std::weak_ptr<Patient>>& Hospital::Doctor::GetPatients() const noexcept
 {
 	return patients;
 }
-
-
-
-
-
