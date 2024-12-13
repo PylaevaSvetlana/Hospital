@@ -9,91 +9,91 @@ namespace Hospital
 {
 	class Doctor;
 	/*
-	* @brief класс Кациент.
+	* @brief РєР»Р°СЃСЃ РљР°С†РёРµРЅС‚.
 	*/
 	class Patient;
 	/*
-	* @brief класс Доктор.
+	* @brief РєР»Р°СЃСЃ Р”РѕРєС‚РѕСЂ.
 	*/
 	class Doctor final : public std::enable_shared_from_this<Doctor>
 	{
 	private:
 		/*
-	    * @brief имя доктора.
+	    * @brief РёРјСЏ РґРѕРєС‚РѕСЂР°.
 	    */
 		std::string firstName;
 		/*
-		* @brief фамилия доктора.
+		* @brief С„Р°РјРёР»РёСЏ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::string secondName;
 		/*
-		* @brief отчество доктора.
+		* @brief РѕС‚С‡РµСЃС‚РІРѕ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::string patronymicName;
 		/*
-		* @brief специализация доктора.
+		* @brief СЃРїРµС†РёР°Р»РёР·Р°С†РёСЏ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::string specialization;
 		/*
-		* @brief вектор указателей на пациентов.
+		* @brief РІРµРєС‚РѕСЂ СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° РїР°С†РёРµРЅС‚РѕРІ.
 		*/
 		std::vector<std::weak_ptr<Patient>> patients;
 		/*
-		* @brief конструктор класса Доктор.
-		* @param firstName - имя доктора.
-		* @param secondName - фамилия доктора.
-		* @param patronymicName - отчество доктора.
-		* @param specialization - специализация доктора.
+		* @brief РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Р”РѕРєС‚РѕСЂ.
+		* @param firstName - РёРјСЏ РґРѕРєС‚РѕСЂР°.
+		* @param secondName - С„Р°РјРёР»РёСЏ РґРѕРєС‚РѕСЂР°.
+		* @param patronymicName - РѕС‚С‡РµСЃС‚РІРѕ РґРѕРєС‚РѕСЂР°.
+		* @param specialization - СЃРїРµС†РёР°Р»РёР·Р°С†РёСЏ РґРѕРєС‚РѕСЂР°.
 		*/
 		Doctor(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& specialization);
 	public:
 		/*
-		* @brief метод создания объекта доктор.
-		* @param firstName - имя доктора.
-		* @param secondName - фамилия доктора.
-		* @param patronymicName - отчество доктора.
-		* @param specialization - специализация доктора.
+		* @brief РјРµС‚РѕРґ СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р° РґРѕРєС‚РѕСЂ.
+		* @param firstName - РёРјСЏ РґРѕРєС‚РѕСЂР°.
+		* @param secondName - С„Р°РјРёР»РёСЏ РґРѕРєС‚РѕСЂР°.
+		* @param patronymicName - РѕС‚С‡РµСЃС‚РІРѕ РґРѕРєС‚РѕСЂР°.
+		* @param specialization - СЃРїРµС†РёР°Р»РёР·Р°С†РёСЏ РґРѕРєС‚РѕСЂР°.
 		*/
 		static std::shared_ptr<Doctor> CreateDoctor(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& specialization);
 		/*
-		* @brief метод добавления связи доктора с пациентом.
-		* @param patient - объект класса пациент.
-		* @return возваращет true если все прошло успешно.
+		* @brief РјРµС‚РѕРґ РґРѕР±Р°РІР»РµРЅРёСЏ СЃРІСЏР·Рё РґРѕРєС‚РѕСЂР° СЃ РїР°С†РёРµРЅС‚РѕРј.
+		* @param patient - РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° РїР°С†РёРµРЅС‚.
+		* @return РІРѕР·РІР°СЂР°С‰РµС‚ true РµСЃР»Рё РІСЃРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ.
 		*/
 		bool AddPatient(std::shared_ptr<Patient>& patient);
 		/*
-		* @brief метод сериализации в строку ToString().
-		* @return возвращает строку с данными о докторе и его пациентах.
+		* @brief РјРµС‚РѕРґ СЃРµСЂРёР°Р»РёР·Р°С†РёРё РІ СЃС‚СЂРѕРєСѓ ToString().
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ СЃС‚СЂРѕРєСѓ СЃ РґР°РЅРЅС‹РјРё Рѕ РґРѕРєС‚РѕСЂРµ Рё РµРіРѕ РїР°С†РёРµРЅС‚Р°С….
 		*/
 		std::string ToString() const;
 		/*
-		* @brief метод получения имени доктора.
-		* @return возвращает имя доктора.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РёРјРµРЅРё РґРѕРєС‚РѕСЂР°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::string GetFirstName() const noexcept;
 		/*
-		* @brief метод получения фамилии доктора.
-		* @return возвращает фамилию доктора.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ С„Р°РјРёР»РёРё РґРѕРєС‚РѕСЂР°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ С„Р°РјРёР»РёСЋ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::string GetSecondName() const noexcept;
 		/*
-		* @brief метод получения отчества доктора.
-		* @return возвращает отчество доктора.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РѕС‚С‡РµСЃС‚РІР° РґРѕРєС‚РѕСЂР°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РѕС‚С‡РµСЃС‚РІРѕ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::string GetPatronymicName() const noexcept;
 		/*
-		* @brief метод получения специализации доктора.
-		* @return возвращает специализацию доктора.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРµС†РёР°Р»РёР·Р°С†РёРё РґРѕРєС‚РѕСЂР°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРїРµС†РёР°Р»РёР·Р°С†РёСЋ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::string GetSpecialization() const noexcept;
 		/*
-		* @brief метод получения вектора пациентов доктора.
-		* @return возвращает вектор пациентов доктора.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РІРµРєС‚РѕСЂР° РїР°С†РёРµРЅС‚РѕРІ РґРѕРєС‚РѕСЂР°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РІРµРєС‚РѕСЂ РїР°С†РёРµРЅС‚РѕРІ РґРѕРєС‚РѕСЂР°.
 		*/
 		std::vector<std::weak_ptr<Patient>>& GetPatients() noexcept;
 		/*
-		* @brief метод получения вектора пациентов доктора.
-		* @return возвращает вектор пациентов доктора.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РІРµРєС‚РѕСЂР° РїР°С†РёРµРЅС‚РѕРІ РґРѕРєС‚РѕСЂР°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РІРµРєС‚РѕСЂ РїР°С†РёРµРЅС‚РѕРІ РґРѕРєС‚РѕСЂР°.
 		*/
 		const std::vector<std::weak_ptr<Patient>>& GetPatients() const noexcept;
 	};

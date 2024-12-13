@@ -8,111 +8,111 @@
 namespace Hospital
 {
 	/*
-	* @brief класс Доктор.
+	* @brief РєР»Р°СЃСЃ Р”РѕРєС‚РѕСЂ.
 	*/
 	class Doctor;
 	/*
-	* @brief класс Палата.
+	* @brief РєР»Р°СЃСЃ РџР°Р»Р°С‚Р°.
 	*/
 	class Room;
 	class Patient;
 	/*
-	* @brief класс Пациент.
+	* @brief РєР»Р°СЃСЃ РџР°С†РёРµРЅС‚.
 	*/
 	class Patient final : public std::enable_shared_from_this<Patient>
 	{
 	private:
 		/*
-	    * @brief имя пациента.
+	    * @brief РёРјСЏ РїР°С†РёРµРЅС‚Р°.
 	    */
 		std::string firstName;
 		/*
-		* @brief фамилия пациента.
+		* @brief С„Р°РјРёР»РёСЏ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::string secondName;
 		/*
-		* @brief отчество пациента.
+		* @brief РѕС‚С‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::string patronymicName;
 		/*
-		* @brief болезнь пациента.
+		* @brief Р±РѕР»РµР·РЅСЊ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::string disease;
 		/*
-		* @brief вектор указателей на докторов.
+		* @brief РІРµРєС‚РѕСЂ СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° РґРѕРєС‚РѕСЂРѕРІ.
 		*/
 		std::vector<std::shared_ptr<Doctor>> doctors;
 		/*
-		* @brief указатель на палату.
+		* @brief СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїР°Р»Р°С‚Сѓ.
 		*/
 		std::shared_ptr<Room> room;
 		/*
-		* @brief конструктор класса Пациент.
-		* @param firstName - имя пациента.
-		* @param secondName - фамилия пациента.
-		* @param patronymicName - отчество пациента.
-		* @param disease - болезнь пациента.
+		* @brief РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° РџР°С†РёРµРЅС‚.
+		* @param firstName - РёРјСЏ РїР°С†РёРµРЅС‚Р°.
+		* @param secondName - С„Р°РјРёР»РёСЏ РїР°С†РёРµРЅС‚Р°.
+		* @param patronymicName - РѕС‚С‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚Р°.
+		* @param disease - Р±РѕР»РµР·РЅСЊ РїР°С†РёРµРЅС‚Р°.
 		*/
 		Patient(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& disease);
 	public:
 		/*
-		* @brief метод создания объекта пациент.
-		* @param firstName - имя пациента.
-		* @param secondName - фамилия пациента.
-		* @param patronymicName - отчество пациента.
-		* @param disease - болезнь пациента.
+		* @brief РјРµС‚РѕРґ СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р° РїР°С†РёРµРЅС‚.
+		* @param firstName - РёРјСЏ РїР°С†РёРµРЅС‚Р°.
+		* @param secondName - С„Р°РјРёР»РёСЏ РїР°С†РёРµРЅС‚Р°.
+		* @param patronymicName - РѕС‚С‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚Р°.
+		* @param disease - Р±РѕР»РµР·РЅСЊ РїР°С†РёРµРЅС‚Р°.
 		*/
 		static std::shared_ptr<Patient> CreatePatient(const std::string& firstName, const std::string& secondName, const std::string& patronymicName, const std::string& disease);
 		/*
-		* @brief метод сериализации в строку ToString().
-		* @return возвращает строку с данными о пациенте и его палате.
+		* @brief РјРµС‚РѕРґ СЃРµСЂРёР°Р»РёР·Р°С†РёРё РІ СЃС‚СЂРѕРєСѓ ToString().
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ СЃС‚СЂРѕРєСѓ СЃ РґР°РЅРЅС‹РјРё Рѕ РїР°С†РёРµРЅС‚Рµ Рё РµРіРѕ РїР°Р»Р°С‚Рµ.
 		*/
 		std::string ToString() const;
 		/*
-		* @brief метод получения имени пациента.
-		* @return возвращает имя пациента.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РёРјРµРЅРё РїР°С†РёРµРЅС‚Р°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::string GetFirstName() const noexcept;
 		/*
-		* @brief метод получения фамилии пациента.
-		* @return возвращает фамилию пациента.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ С„Р°РјРёР»РёРё РїР°С†РёРµРЅС‚Р°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ С„Р°РјРёР»РёСЋ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::string GetSecondName() const noexcept;
 		/*
-		* @brief метод получения отчества пациента.
-		* @return возвращает отчество пациента.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РѕС‚С‡РµСЃС‚РІР° РїР°С†РёРµРЅС‚Р°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РѕС‚С‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::string GetPatronymicName() const noexcept;
 		/*
-		* @brief метод получения болезни пациента.
-		* @return возвращает болезнь пациента.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ Р±РѕР»РµР·РЅРё РїР°С†РёРµРЅС‚Р°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ Р±РѕР»РµР·РЅСЊ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::string GetDisease() const noexcept;
 		/*
-		* @brief метод получения палаты пациента.
-		* @return возвращает палату пациента.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РїР°Р»Р°С‚С‹ РїР°С†РёРµРЅС‚Р°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РїР°Р»Р°С‚Сѓ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::shared_ptr<Room>& GetRoom() noexcept;
 		/*
-		* @brief метод получения палаты пациента.
-		* @return возвращает палату пациента.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РїР°Р»Р°С‚С‹ РїР°С†РёРµРЅС‚Р°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РїР°Р»Р°С‚Сѓ РїР°С†РёРµРЅС‚Р°.
 		*/
 		const std::shared_ptr<Room>& GetRoom() const noexcept;
 		/*
-		* @brief метод добавления связи пациента с палатой.
-		* @param room - объект класса палата.
-		* @return возваращет true если все прошло успешно.
+		* @brief РјРµС‚РѕРґ РґРѕР±Р°РІР»РµРЅРёСЏ СЃРІСЏР·Рё РїР°С†РёРµРЅС‚Р° СЃ РїР°Р»Р°С‚РѕР№.
+		* @param room - РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° РїР°Р»Р°С‚Р°.
+		* @return РІРѕР·РІР°СЂР°С‰РµС‚ true РµСЃР»Рё РІСЃРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ.
 		*/
 		bool AddRoom(std::shared_ptr<Room>& room);
 		/*
-		* @brief метод добавления связи пациента с доктором.
-		* @param doctor - объект класса доктор.
-		* @return возваращет true если все прошло успешно.
+		* @brief РјРµС‚РѕРґ РґРѕР±Р°РІР»РµРЅРёСЏ СЃРІСЏР·Рё РїР°С†РёРµРЅС‚Р° СЃ РґРѕРєС‚РѕСЂРѕРј.
+		* @param doctor - РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° РґРѕРєС‚РѕСЂ.
+		* @return РІРѕР·РІР°СЂР°С‰РµС‚ true РµСЃР»Рё РІСЃРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ.
 		*/
 		bool AddDoctor(std::shared_ptr<Doctor>& doctor);
 		/*
-		* @brief метод получения вектора докторв пациента.
-		* @return возвращает вектор докторв пациента.
+		* @brief РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РІРµРєС‚РѕСЂР° РґРѕРєС‚РѕСЂРІ РїР°С†РёРµРЅС‚Р°.
+		* @return РІРѕР·РІСЂР°С‰Р°РµС‚ РІРµРєС‚РѕСЂ РґРѕРєС‚РѕСЂРІ РїР°С†РёРµРЅС‚Р°.
 		*/
 		std::vector<std::shared_ptr<Doctor>>& GetDoctors();
 	};
