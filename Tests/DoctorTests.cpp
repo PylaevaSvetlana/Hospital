@@ -12,10 +12,10 @@ namespace Tests
 
 		TEST_METHOD(Ctor_ValidData_Success)
 		{
-			const std::string firstName{ "Иван" };
-			const std::string secondName{ "Иванов" };
-			const std::string patronymicName{ "Ивановиич" };
-			const std::string specialization{ "Доктор" };
+			const std::string firstName{ "РРІР°РЅ" };
+			const std::string secondName{ "РРІР°РЅРѕРІ" };
+			const std::string patronymicName{ "РРІР°РЅРѕРІРёРёС‡" };
+			const std::string specialization{ "Р”РѕРєС‚РѕСЂ" };
 
 			auto  doctor = Doctor::CreateDoctor(firstName, secondName, patronymicName, specialization);
 			
@@ -27,14 +27,14 @@ namespace Tests
 
 		TEST_METHOD(AddPatient_ValidData_True)
 		{
-			const std::string firstName1{ "Иван" };
-			const std::string secondName1{ "Иванов" };
-			const std::string patronymicName1{ "Ивановиич" };
-			const std::string specialization{ "Доктор" };
-			const std::string firstName2{ "Пётр" };
-			const std::string secondName2{ "Петров" };
-			const std::string patronymicName2{ "Петрович" };
-			const std::string disease{ "Болезнь" };
+			const std::string firstName1{ "РРІР°РЅ" };
+			const std::string secondName1{ "РРІР°РЅРѕРІ" };
+			const std::string patronymicName1{ "РРІР°РЅРѕРІРёРёС‡" };
+			const std::string specialization{ "Р”РѕРєС‚РѕСЂ" };
+			const std::string firstName2{ "РџС‘С‚СЂ" };
+			const std::string secondName2{ "РџРµС‚СЂРѕРІ" };
+			const std::string patronymicName2{ "РџРµС‚СЂРѕРІРёС‡" };
+			const std::string disease{ "Р‘РѕР»РµР·РЅСЊ" };
 			auto  doctor = Doctor::CreateDoctor(firstName1, secondName1, patronymicName1, specialization);
 			auto  patient = Patient::CreatePatient(firstName2, secondName2, patronymicName2, disease);
 

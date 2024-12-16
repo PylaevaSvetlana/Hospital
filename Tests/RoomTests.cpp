@@ -21,10 +21,10 @@ namespace Tests
 		TEST_METHOD(AddPatient_ValidData_True)
 		{
 			
-			const std::string firstName{ "Пётр" };
-			const std::string secondName{ "Петров" };
-			const std::string patronymicName{ "Петрович" };
-			const std::string disease{ "Болезнь" };
+			const std::string firstName{ "РџС‘С‚СЂ" };
+			const std::string secondName{ "РџРµС‚СЂРѕРІ" };
+			const std::string patronymicName{ "РџРµС‚СЂРѕРІРёС‡" };
+			const std::string disease{ "Р‘РѕР»РµР·РЅСЊ" };
 			int number{ 175 };
 			auto  patient = Patient::CreatePatient(firstName, secondName, patronymicName, disease);
 			auto  room = Room::CreateRoom(number);
