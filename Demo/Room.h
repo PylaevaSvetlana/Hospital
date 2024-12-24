@@ -30,7 +30,7 @@ namespace Hospital
 		* @brief конструктор класса Палата.
 		* @param number - номер палаты.
 		*/
-		Room(int number);
+		 explicit Room(int number);
 	public:
 		/*
 		* @brief метод создания объекта палата.
@@ -53,6 +53,12 @@ namespace Hospital
 		* @return возваращет true если все прошло успешно.
 		*/
 		bool AddPatient(std::shared_ptr<Patient>& patient);
+		/*
+		* @brief метод удаления связи палаты с пациентом.
+		* @param patient - объект класса пациент.
+		* @return возваращет true если все прошло успешно.
+		*/
+		bool RemovePatient(std::shared_ptr<Patient>& patient);
 		/*
 		* @brief метод получения пациентов палаты.
 		* @return возвращает вектор пациентов палаты.

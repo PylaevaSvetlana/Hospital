@@ -43,21 +43,5 @@ namespace Tests
 
 			Assert::IsTrue(result);
 		}
-
-		TEST_METHOD(AddRoom_ValidData_True)
-		{
-			const std::string firstName{ "Пётр" };
-			const std::string secondName{ "Петров" };
-			const std::string patronymicName{ "Петрович" };
-			const std::string disease{ "Болезнь" };
-			int number{ 175 };
-			auto  patient = Patient::CreatePatient(firstName, secondName, patronymicName, disease);
-			auto  room = Room::CreateRoom(number);
-
-
-			auto result = patient->AddRoom(room);
-
-			Assert::IsTrue(result);
-		}
 	};
 }

@@ -48,13 +48,6 @@ const std::shared_ptr<Room>& Hospital::Patient::GetRoom() const noexcept
 	return room;
 }
 
-bool Hospital::Patient::AddRoom(std::shared_ptr<Room>& room)
-{
-	this->room = room;
-	room->GetPatients().push_back(shared_from_this().get());
-	return true;
-}
-
 bool Hospital::Patient::AddDoctor(std::shared_ptr<Doctor>& doctor)
 {
 	this->doctors.push_back(doctor);

@@ -33,5 +33,22 @@ namespace Tests
 
 			Assert::IsTrue(result);
 		}
+
+		TEST_METHOD(RemovePatient_ValidData_True)
+		{
+
+			const std::string firstName{ "Пётр" };
+			const std::string secondName{ "Петров" };
+			const std::string patronymicName{ "Петрович" };
+			const std::string disease{ "Болезнь" };
+			int number{ 175 };
+			auto  patient = Patient::CreatePatient(firstName, secondName, patronymicName, disease);
+			auto  room = Room::CreateRoom(number);
+
+			room->AddPatient(patient);
+			auto result = room->RemovePatient(patient);
+
+			Assert::IsTrue(result);
+		}
 	};
 }

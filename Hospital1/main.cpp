@@ -19,10 +19,10 @@ int main()
 
 
 	doctor->AddPatient(patient);
-	std::cout<<doctor->ToString();
+	std::cout<<doctor->ToString() << "\n";
 
-	patient->AddRoom(room);
-	std::cout << patient->ToString();
+	room->AddPatient(patient);
+	std::cout << room->ToString();
 
 	return 0;
 }

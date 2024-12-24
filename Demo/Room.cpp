@@ -26,6 +26,13 @@ bool Hospital::Room::AddPatient(std::shared_ptr<Patient>& patient)
 	return true;
 }
 
+bool Hospital::Room::RemovePatient(std::shared_ptr<Patient>& patient)
+{
+	this->patients.erase(std::remove(this->patients.begin(), this->patients.end(), patient.get()), this->patients.end());
+	patient.get()->GetRoom() = nullptr;
+	return true;
+}
+
 std::vector<Patient*>& Hospital::Room::GetPatients() noexcept
 {
 	return patients;

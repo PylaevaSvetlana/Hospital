@@ -99,12 +99,6 @@ namespace Hospital
 		*/
 		const std::shared_ptr<Room>& GetRoom() const noexcept;
 		/*
-		* @brief метод добавления связи пациента с палатой.
-		* @param room - объект класса палата.
-		* @return возваращет true если все прошло успешно.
-		*/
-		bool AddRoom(std::shared_ptr<Room>& room);
-		/*
 		* @brief метод добавления связи пациента с доктором.
 		* @param doctor - объект класса доктор.
 		* @return возваращет true если все прошло успешно.
